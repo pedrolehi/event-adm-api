@@ -1,6 +1,7 @@
 import { FastifyInstance } from "fastify";
 import { ZodTypeProvider } from "fastify-type-provider-zod";
 import { z } from "zod";
+import { prisma } from "../lib/prisma";
 
 export async function registerForEvent(app: FastifyInstance) {
     app.withTypeProvider<ZodTypeProvider>().post(
@@ -17,6 +18,14 @@ export async function registerForEvent(app: FastifyInstance) {
                 response: { 201: z.object({ attendeeId: z.number() }) },
             },
         },
-        (request, reply) => {}
+        async (request, reply) => {
+            const {eventId} = request.params
+            const {name, email} = request.body
+
+            const attendee = await prisma.attendee.create({data:{name, email, eventId}})
+
+            return reply.status(201).send({attendeeId:attendee.id})
+        }
     );
+
 }

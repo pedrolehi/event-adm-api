@@ -6,3 +6,13 @@ Content-Type: application/json
 "details":"Um evento para os apaixonados por TI.",
 "maximumAttendees": 100
 }
+
+###
+
+POST http://localhost:3333/events/4e324f8e-536b-4fd6-8e08-2dadaece8bcc/attendees
+Content-Type: application/json
+
+{
+"name":"pedro muniz",
+"email":"pedromuniz@gmail.com"
+}
