@@ -2,25 +2,28 @@ POST http://localhost:3333/events
 Content-Type: application/json
 
 {
-"title":"Evento 2",
-"details":"Um evento para os apaixonados por TI.",
-"maximumAttendees": 1
+  "title": 123,
+  "details": null,
+  "maximumAttendees": 1
 }
 
 ###
 
-POST http://localhost:3333/events/366ccede-1a6a-4123-8761-4a215334453a/attendees
+POST http://localhost:3333/events/81a3f6db-45bf-4a6f-b10c-bcaf8837ac43/attendees
 Content-Type: application/json
 
 {
-"name":"pedro muniz",
-"email":"pedromuniz@gmail.com"
+  "name": "Diego Fernandes",
+  "email": "diego2@rocketseat.com.br"
 }
 
 ###
 
-GET http://localhost:3333/events/366ccede-1a6a-4123-8761-4a215334453a
+GET http://localhost:3333/events/81a3f6db-45bf-4a6f-b10c-bcaf8837ac43
 
 ###
 
-GET http://localhost:3333/attendees/9/badge
+GET http://localhost:3333/attendees/1/badge
+###
+
+GET http://localhost:3333/attendees/1/check-in
