@@ -1,8 +1,10 @@
 import fastify from "fastify";
+import fastifySwagger from "@fastify/swagger";
+import fastifySwaggerUI from "@fastify/swagger-ui";
+
 import {
   serializerCompiler,
   validatorCompiler,
-  ZodTypeProvider,
 } from "fastify-type-provider-zod";
 import {} from "@prisma/client";
 import { createEvent } from "./routes/create-event.route";
@@ -15,6 +17,18 @@ import { getEventAttendees } from "./routes/get-event-attendess.route";
 const app = fastify();
 const port = 3333;
 
+app.register(fastifySwagger, {
+  swagger: {
+    consumes: ["application/json"],
+    produces: ["applications/json"],
+    info: {
+      title: "pass.in",
+      description:
+        "Especificações de API para a aplicação pass.in desenvolvida com propósidos educacionais.",
+      version: "1.0.0",
+    },
+  },
+});
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
