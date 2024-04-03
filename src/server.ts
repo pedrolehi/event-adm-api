@@ -10,6 +10,7 @@ import { registerForEvent } from "./routes/register-for-event.route";
 import { getEvent } from "./routes/get-event.route";
 import { getAttendeeBadge } from "./routes/get-attendee-badge.route";
 import { checkIn } from "./routes/check-in.route";
+import { getEventAttendees } from "./routes/get-event-attendess.route";
 
 const app = fastify();
 const port = 3333;
@@ -20,6 +21,7 @@ app.setSerializerCompiler(serializerCompiler);
 app.register(createEvent);
 app.register(registerForEvent);
 app.register(getEvent);
+app.register(getEventAttendees);
 app.register(getAttendeeBadge);
 app.register(checkIn);
 

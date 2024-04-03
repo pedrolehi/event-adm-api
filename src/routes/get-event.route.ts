@@ -29,7 +29,6 @@ export async function getEvent(app: FastifyInstance) {
     },
     async (request, reply) => {
       const { eventId } = request.params;
-      console.log(eventId);
 
       const event = await prisma.event.findUnique({
         select: {
