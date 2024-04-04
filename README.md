@@ -21,9 +21,9 @@ O sistema fará um scan da credencial do participante para permitir a entrada no
 
 - [x] O organizador deve poder cadastrar um novo evento;
 - [x] O organizador deve poder visualizar dados de um evento;
-- [] O organizador deve poder visualizar a lista de participantes;
+- [x] O organizador deve poder visualizar a lista de participantes;
 - [x] O participante deve poder se inscrever em um evento;
-- [] O participante deve poder visualizar seu crachá de inscrição;
+- [x] O participante deve poder visualizar seu crachá de inscrição;
 - [x] O participante deve poder realizar check-in no evento;
 
 ### Regras de negócio
@@ -34,7 +34,7 @@ O sistema fará um scan da credencial do participante para permitir a entrada no
 
 ### Requisitos não-funcionais
 
-- [] O check-in no evento será realizado através de um QRCode;
+- [x] O check-in no evento será realizado através de um QRCode;
 
 ## Documentação da API (Swagger)
 
