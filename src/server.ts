@@ -5,6 +5,7 @@ import fastifySwaggerUI from "@fastify/swagger-ui";
 import {
   serializerCompiler,
   validatorCompiler,
+  jsonSchemaTransform,
 } from "fastify-type-provider-zod";
 import {} from "@prisma/client";
 import { createEvent } from "./routes/create-event.route";
@@ -28,15 +29,21 @@ app.register(fastifySwagger, {
       version: "1.0.0",
     },
   },
+  transform: jsonSchemaTransform,
 });
+
+app.register(fastifySwaggerUI, { routePrefix: "/docs" });
+
 app.setValidatorCompiler(validatorCompiler);
 app.setSerializerCompiler(serializerCompiler);
 
 app.register(createEvent);
 app.register(registerForEvent);
 app.register(getEvent);
+
 app.register(getEventAttendees);
 app.register(getAttendeeBadge);
+
 app.register(checkIn);
 
 app.listen({ port: port }).then(() => {
